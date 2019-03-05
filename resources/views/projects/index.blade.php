@@ -9,5 +9,7 @@
 			<li><a href="/projects/{{ $project->id }}">{{ $project->title }}</a></li>
 		@endforeach
 		</ol>
+
+		<a href="/projects/create">Create a New Project</a>
 	</div>
 @endsection
