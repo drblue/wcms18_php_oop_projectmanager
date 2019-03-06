@@ -11,19 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
+Auth::routes();
+
+Route::get('/', 'PageController@welcome');
+
+Route::middleware(['auth'])->group(function() {
+	Route::resource('/projects', 'ProjectController');
+	Route::resource('/todos', 'TodoController');
+	Route::get('/home', 'HomeController@index')->name('home');
 });
-
-// Route::get('/projects', 'ProjectController@index');
-// Route::get('/projects/{project}', 'ProjectController@show');
-Route::resource('/projects', 'ProjectController');
-
-// Route::get('/todos', 'TodoController@index');
-// Route::get('/todos/create', 'TodoController@create');
-// Route::post('/todos', 'TodoController@store');
-// Route::get('/todos/{todo}', 'TodoController@show');
-// Route::get('/todos/{todo}/edit', 'TodoController@edit');
-// Route::post('/todos/{todo}', 'TodoController@update');
-// Route::delete('/todos/{todo}', 'TodoController@destroy');
-Route::resource('/todos', 'TodoController');
