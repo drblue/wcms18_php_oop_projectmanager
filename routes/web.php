@@ -18,5 +18,5 @@ Route::get('/', 'PageController@welcome');
 Route::middleware(['auth'])->group(function() {
 	Route::resource('/projects', 'ProjectController');
 	Route::resource('/todos', 'TodoController');
-	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/dashboard', 'DashboardController@index');
 });
