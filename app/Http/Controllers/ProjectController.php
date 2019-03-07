@@ -109,6 +109,12 @@ class ProjectController extends Controller
 	 */
 	public function destroy(Project $project)
 	{
-		return redirect('/projects');
+		foreach ($project->todos as $todo) {
+			$todo->delete();
+		}
+
+		$project->delete();
+
+		return redirect('/projects')->with('status', 'Project successfully deleted 😅!');
 	}
 }
