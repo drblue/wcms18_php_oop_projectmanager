@@ -2,7 +2,10 @@
 
 @section('content')
 	<div class="container mt-3">
+
 		<h1>All Projects</h1>
+
+		@include('partials/status')
 
 		<ol>
 		@foreach($projects as $project)

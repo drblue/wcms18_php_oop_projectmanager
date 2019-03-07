@@ -56,7 +56,7 @@ class ProjectController extends Controller
 		$project->description = $validData['description'];
 		$project->save();
 
-		return redirect('/projects/' . $project->id);
+		return redirect('/projects')->with('status', 'Project created successfully!');
 	}
 
 	/**
@@ -98,7 +98,7 @@ class ProjectController extends Controller
 		$project->description = $validData['description'];
 		$project->save();
 
-		return redirect('/projects/' . $project->id);
+		return redirect('/projects/' . $project->id)->with('status', 'Project updated successfully!');
 	}
 
 	/**

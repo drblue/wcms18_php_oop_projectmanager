@@ -2,7 +2,10 @@
 
 @section('content')
 	<div class="container mt-3">
+
 		<h1>{{ $project->title }}</h1>
+
+		@include('partials/status')
 
 		<p>{{ $project->description }}</p>
 
