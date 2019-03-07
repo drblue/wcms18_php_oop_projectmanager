@@ -12,12 +12,12 @@
 
 			<div class="form-group">
 				<label for="title">Project Title</label>
-				<input type="text" name="title" id="title" class="form-control" placeholder="Project Title">
+				<input type="text" name="title" id="title" class="form-control" placeholder="Project Title" required value="{{ old('title') }}">
 			</div>
 
 			<div class="form-group">
 				<label for="description">Project Description</label>
-				<input type="text" name="description" id="description" class="form-control" placeholder="Project Description">
+				<input type="text" name="description" id="description" class="form-control" placeholder="Project Description" required value="{{ old('description') }}">
 			</div>
 
 			<input type="submit" value="Create New Project" class="btn btn-primary">
