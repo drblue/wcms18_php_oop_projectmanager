@@ -4,6 +4,8 @@
 	<div class="container mt-3">
 		<h1>Create a New Project</h1>
 
+		@include('partials/validation_errors')
+
 		<form method="POST" action="/projects">
 
 			@csrf

@@ -4,6 +4,8 @@
 	<div class="container mt-3">
 		<h1>Edit Project: {{ $project->title }}</h1>
 
+		@include('partials/validation_errors')
+
 		<form method="POST" action="/projects/{{ $project->id }}">
 
 			@csrf

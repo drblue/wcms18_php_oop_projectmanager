@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+
+	/**
+	 * Validation Rules
+	 */
+	protected $validation_rules = [
+		'title' => 'required|min:5',
+		'description' => 'required|min:5',
+	];
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -39,10 +48,12 @@ class ProjectController extends Controller
 	 */
 	public function store(Request $request)
 	{
+		$validData = $request->validate($this->validation_rules);
+
 		$project = new Project();
 		$project->user_id = Auth::user()->id;
-		$project->title = $request->title;
-		$project->description = $request->description;
+		$project->title = $validData['title'];
+		$project->description = $validData['description'];
 		$project->save();
 
 		return redirect('/projects/' . $project->id);
@@ -81,8 +92,10 @@ class ProjectController extends Controller
 	 */
 	public function update(Request $request, Project $project)
 	{
-		$project->title = $request->title;
-		$project->description = $request->description;
+		$validData = $request->validate($this->validation_rules);
+
+		$project->title = $validData['title'];
+		$project->description = $validData['description'];
 		$project->save();
 
 		return redirect('/projects/' . $project->id);
