@@ -15,6 +15,7 @@ Auth::routes();
 
 Route::get('/', 'PageController@welcome');
 
+// DEMAND A USER SACRIFICE!
 Route::middleware(['auth'])->group(function() {
 	Route::resource('/projects', 'ProjectController');
 	Route::resource('/projects/{project}/todos', 'ProjectTodoController');
