@@ -19,4 +19,9 @@ class Todo extends Model
 	public function project() {
 		return $this->belongsTo(Project::class);
 	}
+
+	public function complete($completed = true) {
+		$this->completed = $completed;
+		$this->save();
+	}
 }
