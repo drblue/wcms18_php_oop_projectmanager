@@ -17,5 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/projects', 'Api\ProjectController@index');
-Route::get('/projects/{project}', 'Api\ProjectController@show');
+Route::resource('/projects', 'Api\ProjectController');
